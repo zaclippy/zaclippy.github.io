@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Algorithms 💻</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+        }
+
+        .main {
+            padding-left: 10px;
+        }
+
+        .inputbs {
+            width: 30px;
+        }
+    </style>
+    <link rel="stylesheet" href="../navbarstyle.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+</head>
+
+<body>
+    <div class="navbar1">
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbutton">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">zacky.ddns.net</label>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html">Weather</a></li>
+                <li><a href="../math/index.html">Maths</a></li>
+                <li><a href="../algorithms/index.html">Algorithms</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <br>
+    <div class="main">
+        <h1>Sorting Algorithms</h1>
+        <br>
+        How many numbers to sort?
+        <input type="number" id="arrsize" class="inputbs" name="arraySize"></input>
+        <button type="submit" name="arraysetb" id="arraysetb">Set</button>
+        <br><br>
+        <div id="arraylabel">Array:</div>
+        <form id="bubbleform">
+            <div id="bubblelist">
+
+            </div>
+            <button type="submit" name="button" onclick="buttonbubblesort()">Bubble Sort</button>
+        </form>
+    </div>
+
+    <script src="sorting.js"></script>
+</body>
+
+</html>

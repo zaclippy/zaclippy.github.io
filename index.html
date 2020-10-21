@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Zacky</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home / Weather ⛅</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="navbarstyle.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="shortcut icon" type="image/png" href="icon.png" />
 </head>
 
 <body>
-    <h1>Zacky's Website</h1>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbutton">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">zacky.ddns.net</label>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Weather</a></li>
+            <li><a href="math/index.html">Maths</a></li>
+            <li><a href="algorithms/index.html">Algorithms</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+    <nav style="background: #2973ff; height: 0.5px;"></nav>
+    <div class="app-wrap">
+        <header>
+            <input type="text" autocomplete="off" class="search-box" placeholder="Type location here">
+            <button class="enter">Enter</button>
+        </header>
+        <main>
+            <section class="location">
+                <div class="city">Enter your location</div>
+                <div class="date">Today</div>
+            </section>
+            <div class="current">
+                <div class="temp">? <span>ºC</span> </div>
+                <div class="weather">Unknown</div>
+                <div class="high-low">Min &degC / Max &degC</div><br>
+                <button type="button" class="fahrenheitswitch" name="button">Change to ºF</button><br><br>
+                <div class="wind-speed">Wind: ?&deg ?mph</div>
+                <div class="br"><br></div>
+                <div class="feels-like">Feels like: N/A</div>
+                <div class="br"><br><br></div>
+                <button class="button"><span>View Location in Google Maps</span></button><br>
+                <small style="color:#dbdbdb;">Made by Zac Lipshaw <br> with OpenWeatherMap API</small>
+                <br><br><br>
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+
 </body>
 
 </html>
