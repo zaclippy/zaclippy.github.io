@@ -4,17 +4,23 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'Segoe UI', 'Trebuchet MS', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+body {}
 
 nav {
     background: #2973ff;
     height: 50px;
+    font-family: -apple-system, 'Trebuchet MS', Geneva, Verdana, sans-serif;
     width: 100%;
+}
+
+.container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', sans-serif;
+}
+
+.app-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', sans-serif;
 }
 
 label.logo {
@@ -35,6 +41,7 @@ nav ul li {
     display: inline-block;
     margin: 0 20px;
     line-height: 50px;
+    color: white;
 }
 
 nav ul li a {

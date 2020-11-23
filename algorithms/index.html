@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Algorithms 💻</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         body {
-            font-family: "Segoe UI", Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+            font-family: 'Segoe UI', Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+        }
+
+        nav {
+            font-family: 'Trebuchet MS', Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
         }
 
         .main {
@@ -14,12 +21,15 @@
         }
 
         .inputbs {
-            width: 30px;
+            width: 60px;
+        }
+
+        .inputbs2 {
+            width: 42px;
         }
     </style>
     <link rel="stylesheet" href="../navbarstyle.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="../icon.png" />
 </head>
 
@@ -30,31 +40,39 @@
             <label for="check" class="checkbutton">
                 <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">zaclippy.github.io</label>
+            <label class="logo">zacky.ddns.net</label>
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../weather.html">Weather</a></li>
                 <li><a href="../math/index.html">Maths</a></li>
-                <li><a href="../algorithms/index.html">Algorithms</a></li>
-                <li><a href="../projects.html">Projects</a></li>
+                <li><b>Algorithms</b></li>
+                <li><a href="https://zackyfinance.herokuapp.com/">Finance</a></li>
             </ul>
         </nav>
     </div>
-
-    <br>
     <div class="main">
+        <br>
         <h1>Sorting Algorithms</h1>
         <br>
-        How many numbers to sort?
-        <input type="number" id="arrsize" class="inputbs" name="arraySize"></input>
-        <button type="submit" name="arraysetb" id="arraysetb">Set</button>
+        How many numbers to sort? <input type="number" id="arrsize" class="inputbs" name="arraySize"></input>
+        <button id="arraysetb">Set</button>
         <br><br>
-        <div id="arraylabel">Array:</div>
+        Which sorting algorithm?<br>
         <form id="bubbleform">
+            <select id="algorithm" size="3" style="font-size: 14px ;overflow:auto;">
+                <option name="button">Bubble Sort</option>
+                <option name="button">Insertion Sort</option>
+                <option name="button">Merge Sort</option>
+            </select><input type="submit" style="background-color:#44c767;border-radius:28px;border:1px solid #18ab29;display:inline-block;cursor:pointer;color:#ffffff;font-size:16px;margin-left: 10px;padding:2px;padding-left:5px;padding-right:5px"
+                value="Sort!" onclick="submitsort()">
+            <br><small id="errortext" style="color: red"></small>
+            <br><br>
+
+            <div id="arraylabel">Edit array:</div>
             <div id="bubblelist">
 
             </div>
-            <button type="submit" name="button" onclick="buttonbubblesort()">Bubble Sort</button>
+
         </form>
     </div>
 

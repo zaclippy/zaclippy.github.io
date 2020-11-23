@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home / Weather ⛅</title>
+    <title>Weather ⛅</title>
     <link rel="stylesheet" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="navbarstyle.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" href="weatherstyle.css">
 </head>
 
 <body>
@@ -18,44 +19,77 @@
         <label for="check" class="checkbutton">
             <i class="fas fa-bars"></i>
         </label>
-        <label class="logo">zaclippy.github.io</label>
+        <label class="logo">zacky.ddns.net</label>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="weather.html">Weather</a></li>
+            <li><b>Weather</b></li>
             <li><a href="math/index.html">Maths</a></li>
             <li><a href="algorithms/index.html">Algorithms</a></li>
-            <li><a href="projects.html">Projects</a></li>
+            <li><a href="https://zackyfinance.herokuapp.com/">Finance</a></li>
         </ul>
     </nav>
-    <nav style="background: #2973ff; height: 0.5px;"></nav>
+
+
+    <div class="dropdown open" id="dropdown1">
+        <br><br>
+        <select class="list" id="how" onchange="changehow()" size="3">
+            <option class="item" selected="selected" class="notcustomloc" name="location-choice" id="ip" onchange="notcustomloc()">Use IP Address</option>
+            <option class="item" name="location-choice" class="notcustomloc" id="ls">Use location services</option>
+            <option class="item" name="location-choice" id="custom" value="Custom Location">Custom Location</option>
+        </select><br>
+        <div class="buttondiv">
+            <input type="text" style="width: 155px; font-size:16px" name="customlocation" id="customloc">
+            <input type="submit" value="Get Location" id='button0' class="button0" onclick="onButtonClick()">
+        </div>
+    </div>
+    <div class="dropdown open" id="dropdown2">
+        <br><br>
+        <select class="list" id="units" size="2">
+            <option class="item" selected="selected" name="button" id="metric">ºC</option>
+            <option class="item" name="button" id="imperial">ºF</option>
+        </select><br><br>
+        <div class="buttondiv">
+            <input type="submit" style="background-color:rgb(19, 181, 196)" value="Get Weather" id='button1' class="button0" onclick="onButtonClick1()">
+        </div>
+        <br><br>
+    </div>
+    <br><br>
+    <small class="hideafter"> This page is not ready yet. The old weather app is <a href="./weather1.html">here</a> </small>
     <div class="app-wrap">
-        <header>
-            <input type="text" autocomplete="off" class="search-box" placeholder="Type location here">
-            <button class="enter">Enter</button>
-        </header>
-        <main>
-            <section class="location">
-                <div class="city">Enter your location</div>
-                <div class="date">Today</div>
-            </section>
-            <div class="current">
-                <div class="temp">? <span>ºC</span> </div>
-                <div class="weather">Unknown</div>
-                <div class="high-low">Min &degC / Max &degC</div><br>
-                <button type="button" class="fahrenheitswitch" name="button">Change to ºF</button><br><br>
-                <div class="wind-speed">Wind: ?&deg ?mph</div>
-                <div class="br"><br></div>
-                <div class="feels-like">Feels like: N/A</div>
-                <div class="br"><br><br></div>
-                <button class="button"><span>View Location in Google Maps</span></button><br>
-                <small style="color:#dbdbdb;">Made by Zac Lipshaw <br> with OpenWeatherMap API</small>
-                <br><br><br>
+        <div class="current-location" style="margin-left: 10px;">
+
+        </div>
+        <div class="map1" style="margin-left: 10px;">
+
+        </div>
+        <div class="table1">
+            <div class="t1">
+                Locations with similar weather <br><br>
+            </div><br>
+            <div class="tablediv">
+                <table>
+                    <thead>
+                        <th> City </th>
+                        <th> Temperature </th>
+                    </thead>
+                    <tbody class="other-locations">
+
+                    </tbody>
+                </table>
+            </div><br>
+            <div class="t2">
+                <small>
+                    <i> This is using Accuweather API </i>
+                </small>
             </div>
-        </main>
+
+        </div>
+        <div class="map2">
+
+        </div>
     </div>
 
-    <script src="main.js"></script>
-
+    <script src="weather.js"></script>
 </body>
 
 </html>

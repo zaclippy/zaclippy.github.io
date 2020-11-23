@@ -7,19 +7,25 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('https://www.vmcdn.ca/f/files/sudbury/sun-clouds.jpg;w=630;h=354;mode=crop');
-    background-size: cover;
-    background-position: top center;
+    font-family: -apple-system, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app-wrap {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.6));
+    text-align: center;
+}
+
+#degrees {
+    font-family: 'Geneva', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#conditions {
+    font-family: 'tahoma', sans-serif;
+    font-style: italic;
 }
 
 header {
