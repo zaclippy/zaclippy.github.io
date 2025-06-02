@@ -3,41 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="navbarstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Zac Lipshaw | Portfolio</title>
     <link rel="stylesheet" href="main.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="shortcut icon" type="image/png" href="icon.png" />
+    <script defer src="projects.js"></script>
 </head>
 
 <body>
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbutton">
-            <i class="fas fa-bars"></i>
-        </label>
-        <label class="logo">Home</label>
-        <ul>
-            <li><b>Home</b></li>
-            <!-- <li><a href="weather.html">Weather</a></li> -->
-            <li><a href="travel/index.html">Travel</a></li>
-            <li><a href="https://brozone.vercel.app">BroZone</a></li>
-            <!-- <li><a href="https://brorun.vercel.app">BroRun</a></li> -->
-            <li><a href="projects/index.html">Projects</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Zac Lipshaw</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="travel/index.html">Travel</a></li>
+            </ul>
+        </div>
     </nav>
-    <br>
-    <div style="margin-left: 10px;">
-        <h1>Zac Lipshaw's Portfolio</h1>
-        <br><br>
-        <p>CS Grad ~ Digital Innovator ~ Full Stack Developer<br><br> 
-            I am working on applied innovation, LLMs, web development and Omniverse. <br> I have built tools for digital twins at JLR, explored prompt engineering in healthcare NLP, and developed web apps for my own personal projects.<br>
-            <br>In this portfolio, you can explore my projects, travel experiences, and more. Feel free to navigate through the sections using the menu above.</p>
-    </div>
-
-
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Hi, I'm Zac Lipshaw</h1>
+            <p>
+                CS Graduate • Digital Innovator • Full Stack Developer<br>
+                I build web apps, work with AI/LLMs, and create digital twin tools.<br>
+                Explore my projects below!
+            </p>
+            <a href="#projects" class="cta-btn">View Projects</a>
+        </div>
+    </header>
+    <main>
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div id="projects-list" class="projects-list">
+                    <!-- Project cards will be injected here by projects.js -->
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>
+                    I am working on applied innovation, LLMs, web development and Omniverse. I have built tools for digital twins at JLR, explored prompt engineering in healthcare NLP, and developed web apps for my own personal projects. I love learning new tech and collaborating on innovative projects.
+                </p>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>
+                    Let's connect! Email me <a href="mailto:zlipshaw@btinternet.com">here</a> or find me on
+                    <a href="https://www.linkedin.com/in/zaclipshaw" target="_blank">LinkedIn</a>.
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            &copy; 2025 Zac Lipshaw. All rights reserved.
+        </div>
+    </footer>
 </body>
 
 </html>
