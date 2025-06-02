@@ -731,19 +731,8 @@ function showLocationInfo(cityData) {
     // Get country flag
     const flag = getCountryFlag(cityData.country);
     
-    // Determine image source
-    let imageSrc;
-    if (cityData.image) {
-        // Use existing image URL if available
-        imageSrc = cityData.image;
-    } else {
-        // Use local image based on city name
-        const cityFileName = cityData.name.toLowerCase()
-            .replace(/[^a-z0-9]/g, '-')  // Replace non-alphanumeric with hyphens
-            .replace(/-+/g, '-')         // Replace multiple hyphens with single
-            .replace(/^-|-$/g, '');      // Remove leading/trailing hyphens
-        imageSrc = `travel/images/${cityFileName}.jpg`;
-    }
+    // Use local image based on exact city name (no formatting changes)
+    const imageSrc = `images/${cityData.name}.jpg`;
     
     // Update panel content
     image.src = imageSrc;
@@ -751,7 +740,7 @@ function showLocationInfo(cityData) {
     name.textContent = cityData.name;
     country.textContent = `${flag} ${cityData.country}`;
     description.textContent = cityData.description || "Beautiful destination worth visiting.";
-    date.textContent = ""; // Remove date for now
+    date.textContent = "";
     
     // Add error handling for local images
     image.onerror = function() {
@@ -776,19 +765,10 @@ function showCountryInfo(countryData, cities) {
     // Get country flag
     const flag = getCountryFlag(countryData.name);
     
-    // Determine image source - use first city with image or local image
+    // Use local image for first city (no formatting changes)
     let imageSrc;
-    const cityWithImage = cities.find(city => city.image);
-    
-    if (cityWithImage) {
-        imageSrc = cityWithImage.image;
-    } else if (cities.length > 0) {
-        // Use local image for first city
-        const cityFileName = cities[0].name.toLowerCase()
-            .replace(/[^a-z0-9]/g, '-')
-            .replace(/-+/g, '-')
-            .replace(/^-|-$/g, '');
-        imageSrc = `travel/images/${cityFileName}.jpg`;
+    if (cities.length > 0) {
+        imageSrc = `images/${cities[0].name}.jpg`;
     } else {
         // Default fallback
         imageSrc = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
