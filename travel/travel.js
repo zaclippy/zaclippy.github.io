@@ -87,29 +87,22 @@ const travelData = {
             description: "Stunning capital city with thermal baths",
         },
         {
-            name: "Vaduz",
-            country: "Liechtenstein",
-            latitude: 47.1415,
-            longitude: 9.5215,
-            image: "https://lh3.googleusercontent.com/pw/AP1GczOBcKwGrFOVWTF7eK1gsiyHsSCA0BOnQRRqs5W_ZMVCKGuw_F93yFyyFAf9Sv41D7DdXpNpr3857RTYpQvgxuAglJworc3vgmbzRAr1k13gaDW4iXbxOFTm6Kxw9UXA4ooq0ACl2IA7CBYSmKSX0DpBsylTQntJiaw2gi6JrlNRvTvmZHNVfot2eP5zqPGeYO5CUiPA6I1rvts3y6ZoSoyWcvVLDOtFY9RxrTcgM50Q70tE4QTE6CkIE5yLwRXFNVE6-BXVyyR0ss4L2FiDBnBc8xeKyw3-ZyEOnkiUFic3TLwPOQttHOCLmYzw_a-1HkbHkUYqdWe_JRG7r_ubQciaTiom116RDlrqhv0imt_YVM-obSKH0JD42RL9ILsQ0i7NpkCX6ZCzMiwRotmn6AIFSo4IqN8PqhCBJqii07rQDAoI3TmC6JxnDAfkfQPYhmBvaFNRJxRKwQWAAXPGTgNWG7SZ0P3hvbMasuo5uUh1RNDeADeROZGpXplURJHewPRp3Pls6hHnV2xNSJbIxTS1ZM52wMMWAIA4opdQsgBCzoB3OViSwml4zcMrE4T27ALlY4-L7IeK-TNK4tVQbvZjE0lAByyWZ1NlK9LJCGFjRjc1CR9fDEvlBKPHSJIzN9Q-2vwWmI9RFBZgj2H-3QxtipYgCDtZ6j7SCJIwboz5OQVqcd7Xq8y814xwpBtRJdxHulElt49XlDpKvBg0MNW5T8nyNZ8MKqvZjRGBlTbjWF3VH3RINPTjNtWncjOmAbGy84rq-WrOHArR9bo311oRKyhezo3EXZQwC7GsOjrRUZxcpWayGMfi88fCbf1zkXXhKecFkeFuJBUrKgscvs1QfWR_XcUwH7Cujn6ClFfpIUoUfK5zPMgULDdtlvH2oAw=w996-h781-s-no?authuser=0",
-            description: "Capital city with a medieval castle",
-        },
-        {
             name: "Lucerne",
             country: "Switzerland",
             latitude: 47.0502,
             longitude: 8.3093,
-            image: "https://lh3.googleusercontent.com/pw/AP1GczPMxPNTiCbMKQZ_N8CaYk8oghnEuHKqbpcgy8hIw866IG6FRwk0zhKILcd2L6CTzkFT2rG9TwI3CfkWInBVYPJwXKuPxa72GC6-6qHmmJVG0IFjz_kEyqSejIxk6l9sIUcU7-xy2EW8FgkbwMRkIv6o7wPHhPE47EvAtGFM9mon10HUE60aswS5iJWEinRPQ_TWHa0m-ZkaxRG6C3tI3LmBQEEgjPt82h_3cI2l3EpaW8EF6vgWby0q0tsHsWG4RQllhAvgMEH5-PqrvNVC9cWDqjFT1UBgp4qY3CB5NyaQ0BHaK9S1ChC0GKWU7OVodmzm7fNPMn3g4WhrfHi40ybaSyBbfoZoD6JN1QlggIYuirwlHp6itqvQ-xnXAu_80URS-0DXkfKCCwgdZqwvi11MybDtDD8ttVTzPBDzorJae_OEejdlMYqEV70m_87gqIxSUBmCW3a47sjeEDLEZ_nwY_veCSLf4sEOEUl_B940qVIeVRXlg13SBAyP-Al-y-_HKjqH5jsdOXeAIzt7RVyVxNJAq8UYWPUy-Us0WUCA23V4l0LfLXAH9ho5hcpQrl3dwRLqcCiwbk8pEAzFH1OTzISqaMRR8IRsiEWge2iqgsXn7hDEaObTVITi2na4OBD9ndpCekRhKFLUfgW3MjMKjp0tKL1VfxgXQT_ZqCxCkEJQQCavtHxU-QVGu_3oeYwHn7WYxJvKgKII_Uj1dLbgkpu7x29WwnHjVtt58QsEEKASS0rjAtLL-nCq-37bdBfd_wo0Bb5gscVROoCU6-mA7a1WrLBMTvgz-YL_ODDPgtWqX9p_tkkCd6dVmxcNj0TJR-qhuvaPqcLlBDWSMDtG_hFVdnXr0zKlR1u0ENyl37xGuwSe4qldrquqtqMrrNDPn_Wi6O8KKzpXh6COEc6bP3-axA=w877-h972-s-no?authuser=0",
+            image: "https://lh3.googleusercontent.com/fife/ALs6j_GQGEB2jEF7Ns-uzYCleN65z6a-IRfjFZSM4RV7_6L602QVsyYB0kQJY01Y4YSsC21EVAgPJmbn4iBZnEoQHPjPNFYkPW-wETJSStrbp-bVuj6Rr-s_pihfWwK78shHXb9gLnD3cii7Nm_zObmW1jkGeC4aBxdkJPlJcwVORVPzUEtrD2VOCTnZSxgHtQcgSBDxSjCmOjO_hIKXzuCLgInCJG_TsjJ7xurP3GwX11bbqpMWQFQZ-2UE3AXgXd8IJWv4rG1hWiPX7H_LzSeSmpM393j4o6Qzk6OT_x6eB2E8CLe2urY77lpd4Eluus5k7AOEzINIqeVSBJ16TOD_x7a4Sf-ZcsOECVJ9dnTb1Ro8van-6yoCc4FHf_Gsk79yAFR_soLujQoGMEhT7vIE0J9U6vpHBFkVbZ9id7svyp2_xZWvaqIh4fXDk61sSvz7TthsyiRDyi_vw0qorxQ0M2P1MPio93cEIChEUnU28fEy3bcffzgkbZCijhrIu-n6ZB04w10ucqX6hJxAp1PcU3mfV3R3xC8tpZUfDilnDA1fMjXVNJLuB_JYaKBAD57S5QsUXeKIPSSTN4VP6tOLXLX9QNxHV7PMZuLOX6Q3TmnCI3dAM3g_-LI-PzYacHidHDqYRK_N3HqGJYauFmwgiRrUYEqjMF5oWNvV-64nHM3ThLBMCm1U4YtvUJZgcMUoE-qZNABG5Bfn3yUkIzxjqonc9TohpWVFxErs1eGwEQe8tDIER3mJRNsouYT9VY4H0b_WbOYMJF8jPqZO3M3oTu4gU9iIUwVzR5UJBqbxVFCxoNgSDiXGU9UnMMbX011O53VXySG64dLu3XJ2oqMjpJf7yoV2DOjtHnz-F_mbE6oMNHySPP1FKUFTcIYy6Ne4Du8QU7GxQVU1Ta-CPfHYb2ShSH_B2szYPEVKopDtjo1rkL3AfSMhCtE36oXwNlwYeVfhgo5YzVzha-lG3GOt3nTTrwMOtt6M6G-1JQoa-_E8TqQ9yE6ycYyt7OjNKyW2f5eLO1lmUrF8hoeSUDPPFpbvQKF4OlVhK280dLHPx37J-QFwHf-_yHoMyeTT5dLNsv-7HGc0lNcvtCsW1lbU0B_3lIttwc1QS-UHLeQyXOeeLvdonZ8nDYZVyvWyPnvAkjJCfY6JRRHuiFDhZSni9rkVqddzyMftEnXznP6HM8apK_iln82eEluOwawH40CvHNng4_WZQklQz-VfFXOi-w5DSR5cm5x4Dv4NI99TAzImueORvg8jW5x7qq4kakfdS3gK5zfFEVQDVJJjfB8XOuT9XoGktvoKJiJrNcrsmHBMNTMFtYi2WPli_6fuCevYEmwMkwyA_C-Y9EhyrxQdmH_wpKhl5RET0J_AE2o37tGHASyA30sZK56d2AFwQYvpOz7EnPKzzpNA1T1BNQZDuN7F9ljKQlhsA4TWl2dEOpTNR0z0akjSTyg3I63LhjHwombUFj9Cq2_USpaAqayTzlvTStHUIxQCF38a_R_aS1rh0Hw7b7UxOwcZcDWURjEcuObnsVSu2GwyuGwqkJ1nIEs3C7Wr0vFAzYg215M85pw3uEK4cDt8i59eZ6njPhyPSqRciI3vumFqBhoukAJkS-wTEOn2nDDolIvWwyQN8RW1xGsVO-e5Ciiy56AS2tQ5WDDmmfwF3nOPd4neCRf_iM4PJFtQP-wi1M1cWsuU8YxDrPM26kNypPJ8foIKjhmAXwQPDJPNLkteBECtxec9-8qhUnxdvEIUiw_hgIABzZnGjIyv1wIbAwVsWdy-mFAunuN0G842TiFQG32azZn7EFG_qwoxC7jqh0w_sN1jY-E2f5DUPnGjr1pkd_TT2oVhi7irUxWEcXW0RbjHk5nkLMH0-Te-7ygH0j8EBN0o22qvrUbs-ZEnIwgeKmS2zQ1eyr_k_RDkycOO8GFyeKp1zBkiApRFCWVGHc5LJhw5RC3Kogj_wut93Gq20a950wmStuaI8BOuAtPpnSFRejC9FG3KF9LBqRAnT9Mc8ZAGidq3pXqzDMHkkB3NCyoNAHCqAZElkJTVQOt_oskNzu4ygFV2oL4EkSKlV13iWDC1XEgSwfkqUlznNuquz5MtsqnGRBnTkX93QmCuWirEr1tTW2U_J_8ZfoOLZ-TXF994NwSXbb5RUzr4uMRyLmRUu9xAay3_bvzfV9nCO4-iuCkm4H8-hh3B6QYM_7dsT3uz0G2X9hQuJTgXuaz6Qn5q9Cfacb15UNa-36SK8Th7f29y-BRkWkcMUGmh0CkH8PZffU2eKUUnJoRPZVuO-9Bg7nZr0v6pjKu7yTTtQuyteBX29WjaLPaH_PBcYhNZHsnmxj2ng9aF3UbPmFB8BJaXRnu9OZJ_pKwgkp1NZ2Ey_rpX138OLwBeWTrCatx8Ar5Rqp_WNZojztCb7i_22sakCtqALJYgJY3WZjbkT6Oj6bHUDob0ZIPNFID35SzellgMB0DYjdLvvTBNlAyxLf36S2tcNvd9QQZB2BhOey870awDR2Gwu1LO-XK7Pu4EQrSjkEN4izAdQU0iGLCD1OitJQH85IlEEJimyA-HrOJaCyG4ga_pGy8ht34Y1IPKUjt-A9-MQ5xEOD1zAmzfhU4Z4SEJEvOJPrIExsj3xoWj85r0kToFb7zmgg3ApE2rke-X2s7veJWUj1Q4XSBCG3sgirOQ--8pojSiLcLKp4stzF69L8CJxRQwJTI6S8y4ddugqbumgl8ZdXaBGYJvZ6UdEiv2lZf7dJLlYF0oK2HcJN1MStYoR3n-DA3NjFOPIh2Gj0_0YqqfRzUoPA17fOayX-6uKtxbzyHeEYt8Ns7c4fSEJVkzGFgChDDJezuDfPITZP7v_A0uTbos1CMEIAbVZspuwMZYZrt3rz9VZar3k5yFjEANOqo8LzBYKAvRNUnBWFRH2CDhoa3ibgjzqH5MIPe_tnJZpGRSo5lHz2xNy52lzgIzgk5N519-nEI2ls_pTaDPDlqD_5LHkf7ETDnhwHvAdmJgG6kSBtiwtBmRJloDinUK2wBzMiu4kJmsTZ1vARuyHn9LWR4nc1EaJ9wnHiu3izyProUoxYtU7Opg-LDI89d15iGk7hjtnft0taQHItKyBq3FmlMWf9qV4Bs-3gUDPqsR1En2kYwQGC3cmTSfxl3WJ6LEqYbN4JF2bsRMD8GMl2n3gdQc_kqE7YQFV2V2f9XsQAd76uFmlejmoRi4vXlVgJdclq9lV8GZoo7lCdi9BVEQsOxT3vuvJ4wcNheUutBgcywriNRkjp3yPRHM88Hh43zVYx3S84d4TkWZ=s972-w877-h972-s-no?authuser=0",
             description: "Picturesque lakeside city with mountains",
         },
         {
-            name: "Flims",
-            country: "Switzerland",
-            latitude: 46.8311,
-            longitude: 9.2877,
-            image: "https://lh3.googleusercontent.com/pw/AP1GczMbtyyrrMt4T9aZimLsFjBnGTep2a8ww5044lguJ4pyunVWKgX8mhzSbI0Sb5fabnbyRsjtBSiQALN7hCIAA2Yh9Qoy4jtM3nhI91ftcHUvcQ4jmO9jzEHZ9xadDc8rPZbHqPZiAinZbYEBf3h6tQe9qv8Aty92E9zn7qxVFQS0SCNK-9nTGeGBCYpGCT10zsKes9o6kTOok57m8X7NN9q50UUElt7pxplGYMKsTDzCWRCdKoAdrw_fMtOFrfrHINe_Jdq8fNlGB6KPuS7bcOyih0GBJ7p2l03_53ILa4oi-jiV_9iZ-Izn9X4hrljQiobOEBcg6OUiyjLnCFc4gXeBXrFL28NJ_HVmQO_xluwuN1TX2nMugTzs9e5dUoQ8kZK_xE-sxkmmPWeYb8ZP0RDVAjA9xidIPGeWOs0IsBz-fYHNVVoX_Ua2LBtXsdS9CjOSrE45W3j9ugXur68Wva-vt9pjsMJVjUf6LEwMV6PihH30E1q6pOT7sJDN7KkNaRL7qY5UrCJ_u2IRXkim0FPIvopbhGwALIUUvHThAy5ubU2Hj9hlxbXOAL6qFewo51VkcgcFG6ZF3zccE5f7BX3uDpoqWS2ew6j-9u_1I4H3GWXioBl_eRsN1tNCkUw9JSj56oY7jpufuVIJXeBMKaFFq9DvEWrMPSc57W36zy1exkvhq3DTcXvcw-SFUz9HMivVtkoNUKS3a8GZoNpUuVWN2QO7rnuYwrmaPpPcLB1mK43GifbQuzM0DnZJl_a-cKo2xFAn7iLp8qFB5P_BZnB9y3wGtMNwkL9Skaf7un3CufqDhs1UpoActNy96z1mGbACLjLbEM1hKVCQXFnpveeWISz-wuVA2hcluLXY9WTQ3EBaZRFb0zKFwIDqnQlOHOablCr0AqhznZBHDq7OvKaY1dhPUpI=w863-h972-s-no?authuser=0",
-            description: "Beautiful alpine village with skiing",
+            name: "Vaduz",
+            country: "Liechtenstein",
+            latitude: 47.1415,
+            longitude: 9.5215,
+            image: "https://lh3.googleusercontent.com/fife/ALs6j_HAQkuq3N4QxSj9Gikcp3PtU1ZixKlk8oYnq8VovYO1RlxzURBTrsLWCxXsJDAIrBbnRTipOU9-Wu_3fFqebhGc3FqbFCdXk78FXNTycDfYERRlvzmzD4TeKTDMko-5Nfxw8OW9s51plPvAx0_zn3rH2HS2zPp1etKMzImfinvrQNe3GnKRAHN8dfaGAPIDO-dsR-zKOprn0xpq81t9tH-zHos0haOsQ1KjhZ2j3ZsLlfm0z0bokLwir_NLJY-t2tF9evu12MtMFodN5daI1mvWPI1SADE6sbMKIIS0XLIk19KzY6QUMj_iNWEyWwaHmHM544dIQsNcEr9dyY3BfY62sKqawQbSqFK1HYsvJCFA828vINklQ1A6cOTHE-YvtUlKNYxAe9uatNWRP9ShPIGfyxzDXuVmni2358OLSx1K8bymAHjXRYq72zq5sDo56tdv80YXBmms5mH1u2YA4iAchy39TllzRacAtOUvc6oOepwtSKj-7_MqsC-e1Y8gIbdbCIM6F8gNIrvXMCLTGZcpxcR_TajL6G25SRHTDCbjNAd2YMw1XkEMsfOaIVpDH8qQScMWp049N1iR3BZyFRF2jEB0CFefHQo4ysImYlGRy3O5elh8E4GKGP3rtK3iKWbY2C39Q8w8zAvAIiOwEnV-iVkkBDl4A5vvaugJLObBFgAHcWFuN19nUl7j-wdRBOj1nRlPYNbP4YYZhoUMgvO-Wz3DhyEaqmKlupG0sPlHokFhVV0RirQ9IKXeclMNpsPFlEMvjcx-NIdG57M8o4bczB8ogZIaxV3TY1b6Tw0f99-Uk8zEqq1cAcft9XDfwmh2SEzRBEnTN1k1_9nMlsEh92bgGXnorrE4QBQvLuWPivUk3ODYvlQuQSIctYY8pT9W9GFuBBJ0MBwu0XtiPVl_uB_3J4bpHprFn86Qx0QkdIkhPQ-64DUf2yJWeYQWpKOMVO3TQcYxxZPEiEn_MvUQDAg5uyhV148J-_XtcJRq7Rdp9EOfaklcj-paVtRskxDzBMP9gsCcscLBy-cj-aWULGxiUXXNTUdB_L0c6sFpGj9PbpLdqjK4Hlqq3O6U1NjItD4T7W7K_hFc19AKD5LkHYtdj5jQ7jLSunDgxg6bktIgP06iduM5qFHoToOc_eA1-Z7V57hlIcHaZ1S6JJXCZZpi44QpY0ZNa4FH5JxJWY9VyQdpw3Di537Divx7hXVwDMcO2dGNsUHhIGTULExBNX9LE7JqqTo9VRdojcYebQqw5kh9g0scOzD8LGAkzFAauYr0Yl25OY_8tMy_R62vfNzYI6NA7tpph_nSATHOQJwJadSshtQdlqU7KHjhYcRZVfXy0lMZ3EOT-DABIikl-2k-P2UzCs4yNQ2Xwnyo05Qhfyatj0K7lgJ7PDqrDtr5lNIze-gHizdHiUQXb87_I8VWNpvfL6JeypJR2e6RP6QvOcOXpHkvSOu1mfghYwuKQGS0cReAuSBr54Zl8RoprAR_x1B6PvSRSUqh9iN_c-9QqlkjLZ7zKr9lurNodjCgck3_h_SS9FOV3gSIOa5-Ch1eU15JoPDMKflP5FJvBVc8pJ2gqnG1R37Uiz1fyRaz5wjx6UlXHHMcpuQhdwfBkPy48KCe_pQ04Y-9EypIbrBZ4gAAV3B75HjiE4-vvYHVy3PKLkGLjTmOyqhgYG18-7NkhxySkgGu7gdoalDSeEiuLRDRfQpMHe6dcACOh6sGZ9IuzYCqFj-Lpt2l9O4ZASrvMbodiN22aRvBy1vy1kCDxYcsRjwfGemee6ios8wjFHko2uUhpSmxn-Wsbn5N4oDwwsU-gY9p4GYpvQrEMAUtVkb_XVyyw3QBBoP9FJOnPSE6jSdfo9ymZTYi8BR-d1RyrdaC6PQ9qqM14k6DSuN196wmpJv-cj1-QbZ18gOjQVddY3AvQJM6ksxVEypVFdHBak4duki3EDIylETBOUswDmXV-coZ1vCg8mgV4vcZXuojnL9_3NPXoaeF_H18tgNqsvEcUoMj0Wz-SAnXZE38vAYoU3PPkBXNS_pF7leFBL9n7Jjjyce2tbQ7kykLfaPkopjXh1bWdqnPzEjJt9EfGtdxqCWYH0UWyaAgVyVzI9YJin5ihPpnG472_MxQu7IklAAyuLKmoD7TcGLJkEPF4Fsdta671PRzIgfmEvykA8ZzHuA2Nm7DWvvtZaSLi2Iu79Mi8ELLF2IRkPHB1gSs6aWsuEK0HQij-yI5mdRoT0AZFb4S10D_QNVutLTxhLCUdqqg0mkhHdd11YaOPfRK1oBrF11dyMFZhMIjpG64Fr-dyhsagZHqdlFgxrAmUr0UNTvvr1RDjWj-NEE3KUf_g61-wea9XAsTgaUhzLi1zh3a9VLkgur0xY45dhzIbBBdvZXm6LohRHoFPmQdfysJOzTJT0-iBh5D1svXtpLlRY3CI4j6tS7aKL8Qhk4b5eyjNTqwnxbODDBsuDRyFqdNvGXZ0aO_DM1TC8ss01c8th8LAgz_ki5PpatQDbLL5d20RpYMB-KVBY5IaqLywbW0-H965icozYE1iBIGSExRFZYx4j6tvYI-hrbPmq0ebtyLk1kjSRBYr-RtndtJzCPoxZbb1O8hqWyBNpbq9Q0AqsseG9hyKqVae57lr4FgP7MkYC74CIWpFKME3ZOvLQURLIsgTeLozucdIXa4d4tyQX1v4mWw6DDTB_7R9FZZLfTheSHeY9pjPOgU_48f9D3V9OAvryTo7T-1sPpwxDW2gnAnTMVFdWcK_dslfHmP5m9HYuJzvmfprJUTd9YBrMPokHuqT6JxtVe8YR9rA3nOnzuNSW11OTSjeE1nGOSJwZ17IRH9JNht-x1IcdnhtUEigPTS1FcRkDtCCMQLj-F9tbVx-xMEQJL2N4EiHTEwd76ARIxy6lwKdSAL_BFMAhVYy90GpX-UYnTJ6Yuur4WnTnSc14mUF12U2eReEze9Y0oPevZab-xTriLvlzvWw_ehH4wo4MSY0HUm7u7YyBNnrO6YxEztFqevGtamh55o3x9XYKrFnv4jl94NEXgV3ocbQqwXIbSIt4HQ3uBiEGMwSnxi9qgFh7b2ooo6kF-B5D3ZBNQgEgQM3tsa30WfgX_y8uAHkdN6Yr96FK_QwWp6UCuO9GBmVYTp4nqzFu74KQsja9dpsqDH_EtYctsVRNoUtWX3HRELQbS2EYyn2G9xwmIw68Ekv21xN621zWOVfCHNWTLVMUq0VOHX3JU0lp405nigIstKrlshBbbQO_oS8skivG4uKFSegEhYMiHCxDnwva8IJ_D_CBqs=s996-w996-h781-s-no?authuser=0",
+            description: "Capital city with a medieval castle",
         },
+
         {
             name: "Amsterdam",
             country: "Netherlands",
@@ -627,6 +620,71 @@ const travelData = {
         },
     ],
 };
+const countryFlags = {
+    'Nepal': "🇳🇵",
+    'India': "🇮🇳",
+    'China': "🇨🇳",
+    'Thailand': "🇹🇭",
+    'Cambodia': "🇰🇭",
+    'Malaysia': "🇲🇾",
+    'Vietnam': "🇻🇳",
+    "United States": "🇺🇸",
+    'Morocco': "🇲🇦",
+    'Iceland': "🇮🇸",
+    "El Salvador": "🇸🇻",
+    'Guatemala': "🇬🇹",
+    'Nicaragua': "🇳🇮",
+    'Colombia': "🇨🇴",
+    'Peru': "🇵🇪",
+    'Belgium': "🇧🇪",
+    'France': "🇫🇷",
+    "Netherlands": "🇳🇱",
+    "United Kingdom": "🇬🇧",
+    "Germany": "🇩🇪",
+    "Poland": "🇵🇱",
+    "Spain": "🇪🇸",
+    "Portugal": "🇵🇹",
+    "Italy": "🇮🇹",
+    "Switzerland": "🇨🇭",
+    "Hungary": "🇭🇺",
+    "Slovakia": "🇸🇰",
+    "Oman": "🇴🇲",
+    "United Arab Emirates": "🇦🇪",
+    "Qatar": "🇶🇦",
+    "Honduras": "🇭🇳",
+    "Mexico": "🇲🇽",
+    "Liechtenstein": "🇱🇮",
+    // Add regional flags for Indian states
+    "Uttarakhand, India": "🇮🇳",
+    "UP, India": "🇮🇳",
+    "Karnataka, India": "🇮🇳",
+    "Kerala, India": "🇮🇳",
+    "Tamil Nadu, India": "🇮🇳",
+    "Gujarat, India": "🇮🇳",
+    "Maharastra, India": "🇮🇳",
+    "Punjab, India": "🇮🇳",
+    "Himachal Pradesh, India": "🇮🇳",
+    // Add US state flags
+    "Rhode Island, USA": "🇺🇸",
+    "Georgia, USA": "🇺🇸",
+    "South Carolina, USA": "🇺🇸",
+};
+function getCountryFlag(countryName) {
+    // Try exact match first
+    if (countryFlags[countryName]) {
+        return countryFlags[countryName];
+    }
+
+    // Try to find a match for the main country name
+    for (const [key, flag] of Object.entries(countryFlags)) {
+        if (countryName.includes(key) || key.includes(countryName)) {
+            return flag;
+        }
+    }
+
+    return "🌍"; // Default world emoji if no flag found
+}
+
 
 // Create map instance using amCharts 4
 am4core.ready(function() {
@@ -737,11 +795,14 @@ function showLocationInfo(cityData) {
     const description = document.getElementById('location-description');
     const date = document.getElementById('location-date');
     
+    // Get country flag
+    const flag = getCountryFlag(cityData.country);
+    
     // Update panel content
     image.src = cityData.image;
     image.alt = cityData.name;
     name.textContent = cityData.name;
-    country.textContent = cityData.country;
+    country.textContent = `${flag} ${cityData.country}`;
     description.textContent = cityData.description;
     date.textContent = ""; // Remove date for now
     
@@ -758,15 +819,18 @@ function showCountryInfo(countryData, cities) {
     const description = document.getElementById('location-description');
     const date = document.getElementById('location-date');
     
+    // Get country flag
+    const flag = getCountryFlag(countryData.name);
+    
     // Update panel content
     image.src = cities[0]?.image || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
     image.alt = countryData.name;
-    name.textContent = countryData.name;
-    country.textContent = `Places visited: ${cities.map(c => c.name).join(', ')}`;
+    name.textContent = `${flag} ${countryData.name}`;
     if (cities.length == 0) {
         country.textContent = "Visited this country";
         description.textContent = "No photos uploaded for this country yet.";
     } else {
+        country.textContent = `Places visited: ${cities.map(c => c.name).join(', ')}`;
         description.textContent = `Explored ${cities.length} amazing ${cities.length === 1 ? 'place' : 'places'} in this incredible country.`;
     }
     date.textContent = "";
