@@ -1,1 +1,55 @@
-Here is where i will put my travel app
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zac's Travel Map</title>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <link rel="stylesheet" href="travel.css">
+    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">← Back to Portfolio</a>
+            <h1>Travel Map</h1>
+        </div>
+    </nav>
+
+    <div class="travel-container">
+        <div id="chartdiv"></div>
+        
+        <!-- Info Panel -->
+        <div id="info-panel" class="info-panel hidden">
+            <div class="info-content">
+                <button id="close-panel" class="close-btn">&times;</button>
+                <img id="location-image" src="" alt="" class="location-image">
+                <div class="location-details">
+                    <h2 id="location-name"></h2>
+                    <p id="location-country"></p>
+                    <p id="location-description"></p>
+                    <span id="location-date" class="date"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3>My Travels</h3>
+            <div class="legend-item">
+                <div class="legend-marker country"></div>
+                <span>Countries visited</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-marker city"></div>
+                <span>Cities/places visited</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="travel.js"></script>
+</body>
+</html>

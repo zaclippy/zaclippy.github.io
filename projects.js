@@ -3,51 +3,54 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "NLP in Healthcare",
             desc: "Exploring prompt engineering and LLMs to extract clinical insights from medical text. Built tools for healthcare NLP research.",
-            tags: ["AI", "NLP", "LLM", "Healthcare", "Python"],
+            tags: ["AI", "NLP", "LLM", "OpenAI API", "Spacy", "Python"],
             links: [
-                { label: "GitHub", url: "https://github.com/zaclippy/healthcare-nlp" }
-            ]
-        },
-        {
-            title: "Software Engineering Project Tracker",
-            desc: "A web app to manage and track software engineering projects, tasks, and team progress. Built with React and Firebase.",
-            tags: ["Web App", "React", "Firebase", "Project Management"],
-            links: [
-                { label: "Live", url: "https://softeng-project-tracker.vercel.app" }
-            ]
+                {
+                    label: "GitHub",
+                    url: "https://github.com/zaclippy/healthcare-nlp",
+                },
+            ],
         },
         {
             title: "BroRun: Strava Run Rating App",
             desc: "A social app to rate and share running routes, integrated with Strava API. Built for runners to discover and review routes.",
             tags: ["Web App", "Strava API", "React", "Fitness"],
-            links: [
-                { label: "Live", url: "https://brorun.vercel.app" }
-            ]
+            links: [{ label: "Live", url: "https://brorun.vercel.app" }],
         },
         {
             title: "BroZone: Social Network App",
             desc: "A modern social network for friends to share updates, photos, and events. Built with Next.js and Firebase.",
             tags: ["Web App", "Next.js", "Firebase", "Social"],
+            links: [{ label: "Live", url: "https://brozone.vercel.app" }],
+        },
+        {
+            title: "Software Engineering Project Tracker",
+            desc: "A web app to manage and track software engineering projects, tasks, and team progress. Built with React and Firebase.",
+            tags: ["Web App", "React", "Flask", "REST API"],
             links: [
-                { label: "Live", url: "https://brozone.vercel.app" }
-            ]
+                {
+                    label: "Live",
+                    url: "https://softeng-project-tracker.vercel.app",
+                },
+            ],
         },
         {
             title: "Travel Map Showcase",
             desc: "Interactive map to showcase my travels, with photos and stories appearing on hover. Built with Mapbox and vanilla JS.",
             tags: ["Web App", "Mapbox", "JavaScript", "Travel"],
-            links: [
-                { label: "Demo", url: "travel/index.html" }
-            ]
+            links: [{ label: "Demo", url: "travel/index.html" }],
         },
         {
-            title: "Finance Web App",
-            desc: "A personal finance tracker web app to manage expenses and visualize spending.",
-            tags: ["Web App", "Finance", "Node.js"],
+            title: "Haskell Poker Parser",
+            desc: "Parser for Texas Hold'em poker hands in Haskell",
+            tags: ["Functional Programming", "Haskell", "Game"],
             links: [
-                { label: "Live", url: "https://zackyfinance.herokuapp.com/" }
-            ]
-        }
+                {
+                    label: "Github",
+                    url: "https://github.com/zaclippy/cswk-program",
+                },
+            ],
+        },
     ];
 
     const projectsList = document.getElementById('projects-list');
