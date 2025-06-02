@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projects = [
         {
-            title: "NLP in Healthcare",
-            desc: "Exploring prompt engineering and LLMs to extract clinical insights from medical text. Built tools for healthcare NLP research.",
+            title: "Final Year Project: NLP in Healthcare",
+            desc: "Final Year Project<br>Using NLP and LLMs to extract clinical information from medical text. <br>Part of my dissertation paper researching the use of NLP in healthcare.",
             tags: ["AI", "NLP", "LLM", "OpenAI API", "Spacy", "Python"],
             links: [
                 {
@@ -15,30 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "BroRun: Strava Run Rating App",
             desc: "A social app to rate and share running routes, integrated with Strava API. Built for runners to discover and review routes.",
             tags: ["Web App", "Strava API", "React", "Fitness"],
-            links: [{ label: "Live", url: "https://brorun.vercel.app" }],
+            links: [{ label: "Work in Progress" , url:"../#" }],
         },
         {
-            title: "BroZone: Social Network App",
-            desc: "A modern social network for friends to share updates, photos, and events. Built with Next.js and Firebase.",
+            title: "BroZone",
+            desc: "Social Networking App made with a friend to replace the addictive nature of social media with a more positive experience",
             tags: ["Web App", "Next.js", "Firebase", "Social"],
             links: [{ label: "Live", url: "https://brozone.vercel.app" }],
         },
         {
             title: "Software Engineering Project Tracker",
-            desc: "A web app to manage and track software engineering projects, tasks, and team progress. Built with React and Firebase.",
+            desc: "University Group Project\nA web app to track software engineering projects, tasks, and team progress to see if a project will fail or not.",
             tags: ["Web App", "React", "Flask", "REST API"],
             links: [
                 {
-                    label: "Live",
+                    label: "Error",
                     url: "https://softeng-project-tracker.vercel.app",
                 },
             ],
         },
         {
-            title: "Travel Map Showcase",
-            desc: "Interactive map to showcase my travels, with photos and stories appearing on hover. Built with Mapbox and vanilla JS.",
-            tags: ["Web App", "Mapbox", "JavaScript", "Travel"],
-            links: [{ label: "Demo", url: "travel/index.html" }],
+            title: "Travel Map",
+            desc: "Interactive map to show where I have explored, with a photo",
+            tags: [],
+            links: [{ label: "Open", url: "travel/index.html" }],
         },
         {
             title: "Haskell Poker Parser",
