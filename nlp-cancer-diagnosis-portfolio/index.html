@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Cancer Diagnosis | Zac Lipshaw</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" type="image/png" href="../icon.png" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">← Back to Portfolio</a>
+            <h1>NLP Cancer Diagnosis</h1>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <!-- Info Panel (initially hidden) -->
+        <div id="results-panel" class="results-panel hidden">
+            <div class="panel-content">
+                <button id="close-results" class="close-btn">&times;</button>
+                <div class="result-header">
+                    <h2 id="result-title">Analysis Results</h2>
+                </div>
+                <div class="result-body">
+                    <div class="classification-result">
+                        <h3>Classification</h3>
+                        <div id="classification-output" class="output-box"></div>
+                    </div>
+                    <div class="ner-result">
+                        <h3>Named Entity Recognition</h3>
+                        <div id="ner-output" class="output-box"></div>
+                    </div>
+                    <div class="confidence-score">
+                        <h3>Confidence Score</h3>
+                        <div id="confidence-output" class="output-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Clinical Text Analysis</h2>
+                <p>Enter clinical notes or medical text below for AI-powered cancer diagnosis assistance.</p>
+                
+                <div class="input-container">
+                    <textarea 
+                        id="clinical-text" 
+                        placeholder="Enter clinical notes here... (e.g., 'Patient presents with persistent cough, weight loss, and chest pain. Smoking history of 20 years.')"
+                        rows="8"
+                    ></textarea>
+                    
+                    <div class="button-group">
+                        <button id="analyze-btn" class="primary-btn">
+                            <span class="btn-text">Analyze Text</span>
+                            <span class="btn-loading hidden">Analyzing...</span>
+                        </button>
+                        <button id="demo-btn" class="secondary-btn">Load Demo Text</button>
+                        <button id="clear-btn" class="clear-btn">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <h2>AI-Powered Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Cancer Classification</h3>
+                        <p>Advanced ML models classify clinical text to identify potential cancer indicators</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏷️</div>
+                        <h3>Named Entity Recognition</h3>
+                        <p>Automatically extract and highlight medical entities like symptoms, conditions, and treatments</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Confidence Scoring</h3>
+                        <p>Get confidence metrics to understand the reliability of AI predictions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Real-time Analysis</h3>
+                        <p>Instant processing of clinical text using state-of-the-art NLP models</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="about-section">
+                <h2>About This Project</h2>
+                <p>
+                    This application showcases my final year dissertation research on using Natural Language Processing 
+                    and Large Language Models for clinical text analysis. The system uses advanced machine learning 
+                    techniques to assist healthcare professionals in identifying potential cancer indicators from 
+                    clinical notes.
+                </p>
+                <div class="tech-stack">
+                    <h3>Technologies Used</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">spaCy</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3>Entity Types</h3>
+            <div class="legend-item">
+                <span class="entity-marker condition"></span>
+                <span>Medical Conditions</span>
+            </div>
+            <div class="legend-item">
+                <span class="entity-marker symptom"></span>
+                <span>Symptoms</span>
+            </div>
+            <div class="legend-item">
+                <span class="entity-marker treatment"></span>
+                <span>Treatments</span>
+            </div>
+            <div class="legend-item">
+                <span class="entity-marker anatomy"></span>
+                <span>Anatomy</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
