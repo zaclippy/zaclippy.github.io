@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["AI", "NLP", "LLM", "OpenAI API", "Spacy", "Python"],
             links: [
                 {
-                    label: "GitHub",
-                    url: "https://github.com/zaclippy/Code",
+                    label: "Open",
+                    url: "nlp-cancer-diagnosis-portfolio/index.html",
                 },
             ],
         },
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "BroRun: Strava Run Rating App",
             desc: "A social app to rate and share running routes, integrated with Strava API. Built for runners to discover and review routes.",
             tags: ["Web App", "Strava API", "React", "Fitness"],
-            links: [{ label: "Work in Progress" , url:"../#" }],
+            links: [{ label: "Work in Progress", url: "../#" }],
         },
         {
             title: "BroZone",
