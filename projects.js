@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             links: [
                 {
                     label: "GitHub",
-                    url: "https://github.com/zaclippy/healthcare-nlp",
+                    url: "https://github.com/zaclippy/Code",
                 },
             ],
         },

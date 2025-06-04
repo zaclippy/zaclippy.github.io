@@ -1,0 +1,28 @@
+{
+  "name": "nlp-cancer-diagnosis-portfolio",
+  "version": "1.0.0",
+  "description": "A web application showcasing the integration of an NLP model for cancer diagnosis.",
+  "main": "src/js/app.js",
+  "scripts": {
+    "start": "live-server public",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "live-server": "^1.2.1"
+  },
+  "keywords": [
+    "NLP",
+    "cancer diagnosis",
+    "web application"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,0 +1,32 @@
+{
+  "annotations": [
+    {
+      "id": "T1",
+      "label": "CONDITION",
+      "start": 20,
+      "end": 35,
+      "text": "osteosarcoma"
+    },
+    {
+      "id": "T2",
+      "label": "SYMPTOM",
+      "start": 40,
+      "end": 48,
+      "text": "dolor óseo"
+    },
+    {
+      "id": "T3",
+      "label": "ANATOMICAL",
+      "start": 62,
+      "end": 87,
+      "text": "segunda vértebra lumbar"
+    },
+    {
+      "id": "T4",
+      "label": "SYMPTOM",
+      "start": 98,
+      "end": 116,
+      "text": "lumbalgia irradiada"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "demoCases": [
+    {
+      "id": 1,
+      "input": "Mujer de 50 años con antecedentes de cáncer de mama, presenta dolor en el pecho y fatiga.",
+      "expectedOutput": {
+        "classification": "Cancer",
+        "entities": [
+          {
+            "text": "cáncer de mama",
+            "label": "CONDITION"
+          },
+          {
+            "text": "dolor en el pecho",
+            "label": "SYMPTOM"
+          },
+          {
+            "text": "fatiga",
+            "label": "SYMPTOM"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "input": "Hombre de 45 años sin antecedentes médicos significativos, presenta tos persistente y pérdida de peso.",
+      "expectedOutput": {
+        "classification": "Non-Cancer",
+        "entities": [
+          {
+            "text": "tos persistente",
+            "label": "SYMPTOM"
+          },
+          {
+            "text": "pérdida de peso",
+            "label": "SYMPTOM"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "input": "Paciente de 60 años con diagnóstico de leucemia, en tratamiento con quimioterapia, presenta fiebre alta.",
+      "expectedOutput": {
+        "classification": "Cancer",
+        "entities": [
+          {
+            "text": "leucemia",
+            "label": "CONDITION"
+          },
+          {
+            "text": "quimioterapia",
+            "label": "TREATMENT"
+          },
+          {
+            "text": "fiebre alta",
+            "label": "SYMPTOM"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "input": "Mujer de 30 años con antecedentes de asma, presenta dificultad para respirar.",
+      "expectedOutput": {
+        "classification": "Non-Cancer",
+        "entities": [
+          {
+            "text": "asma",
+            "label": "CONDITION"
+          },
+          {
+            "text": "dificultad para respirar",
+            "label": "SYMPTOM"
+          }
+        ]
+      }
+    }
+  ]
+}
