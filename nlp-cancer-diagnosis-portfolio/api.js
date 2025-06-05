@@ -1,7 +1,8 @@
 // This file contains functions for making API calls to the NLP cancer diagnosis model.
 // It handles requests and responses, ensuring data is fetched and processed correctly.
 
-const API_URL = 'http://localhost:5000/api'; // Update with your actual API endpoint
+const API_URL =
+    "https://zac-final-nlp-cancer-e16ed6bee0c8.herokuapp.com/api"; // Update with your actual API endpoint
 
 // Function to classify clinical text
 async function classifyText(clinicalText) {
