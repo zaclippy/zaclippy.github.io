@@ -1,11 +1,11 @@
 // Import API functions
-import { classifyText, extractEntities } from './api.js';
+import { classifyText, extractEntities, getDemoData, healthCheck } from './api.js';
 
 class NLPApp {
     constructor() {
         this.initializeElements();
         this.bindEvents();
-        this.initializeDemoData();
+        this.loadDemoData();
     }
 
     initializeElements() {
@@ -27,6 +27,10 @@ class NLPApp {
         this.classificationOutput = document.getElementById('classification-output');
         this.nerOutput = document.getElementById('ner-output');
         this.confidenceOutput = document.getElementById('confidence-output');
+
+        // Demo data storage
+        this.demoTexts = [];
+        this.currentDemoIndex = 0;
     }
 
     bindEvents() {
@@ -56,12 +60,37 @@ class NLPApp {
         });
     }
 
-    initializeDemoData() {
+    async loadDemoData() {
+        try {
+            const response = await getDemoData();
+            if (response.demo_cases && response.demo_cases.length > 0) {
+                this.demoTexts = response.demo_cases;
+                console.log(`Loaded ${this.demoTexts.length} demo cases from backend`);
+                
+                // Update demo button text to show available cases
+                this.demoBtn.textContent = `Load Demo Text (${this.demoTexts.length} available)`;
+            } else {
+                console.warn('No demo cases found, using fallback data');
+                this.initializeFallbackDemoData();
+            }
+        } catch (error) {
+            console.error('Failed to load demo data from backend:', error);
+            this.initializeFallbackDemoData();
+        }
+    }
+
+    initializeFallbackDemoData() {
         this.demoTexts = [
-            "Patient is a 65-year-old male with a history of smoking who presents with persistent cough for 3 months, weight loss of 15 pounds, and chest pain. CT scan shows a 4cm mass in the right upper lobe of the lung with enlarged mediastinal lymph nodes.",
-            "45-year-old female presents with fatigue, night sweats, and enlarged lymph nodes in the neck and axilla. CBC shows elevated white blood cell count. Patient reports B symptoms including fever and unexplained weight loss over the past 2 months.",
-            "Patient with family history of breast cancer presents for routine mammography screening. No current symptoms or palpable masses. Physical examination unremarkable. Mammogram shows scattered fibroglandular densities, no suspicious findings.",
-            "72-year-old male presents with difficulty swallowing, weight loss, and heartburn. Upper endoscopy reveals irregular mucosa in the distal esophagus with biopsy showing dysplastic changes. Patient has history of gastroesophageal reflux disease."
+            {
+                filename: 'fallback_cancer.txt',
+                text: "Patient is a 65-year-old male with a history of smoking who presents with persistent cough for 3 months, weight loss of 15 pounds, and chest pain. CT scan shows a 4cm mass in the right upper lobe of the lung with enlarged mediastinal lymph nodes.",
+                label: "Cancer Case"
+            },
+            {
+                filename: 'fallback_bg.txt',
+                text: "45-year-old female presents with fatigue and mild headache. Physical examination unremarkable. Vital signs stable. No concerning findings on initial assessment.",
+                label: "Non-Cancer"
+            }
         ];
     }
 
@@ -76,6 +105,12 @@ class NLPApp {
         this.setLoadingState(true);
 
         try {
+            // Check backend health first
+            const health = await healthCheck();
+            if (health.status === 'error') {
+                throw new Error('Backend service is unavailable');
+            }
+
             // Make parallel API calls
             const [classificationResult, nerResult] = await Promise.all([
                 classifyText(text),
@@ -144,7 +179,7 @@ class NLPApp {
                 <div class="text-display">${highlightedText}</div>
             </div>
             <div class="entity-list">
-                <h4>Detected Entities:</h4>
+                <h4>Detected Entities (${nerResults.entities.length}):</h4>
                 ${entityList}
             </div>
         `;
@@ -161,8 +196,9 @@ class NLPApp {
             const entityText = highlightedText.substring(entity.start, entity.end);
             const afterEntity = highlightedText.substring(entity.end);
             
+            const labelClass = entity.label.toLowerCase();
             highlightedText = beforeEntity + 
-                `<span class="entity ${entity.label}">${entityText}</span>` + 
+                `<span class="entity ${labelClass}" title="${entity.description || entity.label}">${entityText}</span>` + 
                 afterEntity;
         });
 
@@ -180,10 +216,13 @@ class NLPApp {
         return Object.entries(entityGroups)
             .map(([label, entityList]) => `
                 <div class="entity-group">
-                    <h5><span class="entity-marker ${label.toLowerCase()}"></span>${label}</h5>
+                    <h5><span class="entity-marker ${label.toLowerCase()}"></span>${label} (${entityList.length})</h5>
                     <ul>
                         ${entityList.map(entity => `
-                            <li><span class="entity ${entity.label}">${entity.text}</span></li>
+                            <li>
+                                <span class="entity ${entity.label.toLowerCase()}">${entity.text}</span>
+                                ${entity.description ? `<small> - ${entity.description}</small>` : ''}
+                            </li>
                         `).join('')}
                     </ul>
                 </div>
@@ -226,10 +265,22 @@ class NLPApp {
     }
 
     loadDemoText() {
-        const randomDemo = this.demoTexts[Math.floor(Math.random() * this.demoTexts.length)];
-        this.clinicalText.value = randomDemo;
+        if (this.demoTexts.length === 0) {
+            this.showError('No demo texts available. Please check backend connection.');
+            return;
+        }
+
+        // Cycle through demo texts
+        const demoCase = this.demoTexts[this.currentDemoIndex];
+        this.currentDemoIndex = (this.currentDemoIndex + 1) % this.demoTexts.length;
+
+        // Load the demo text
+        this.clinicalText.value = demoCase.text;
         this.clinicalText.style.height = 'auto';
         this.clinicalText.style.height = (this.clinicalText.scrollHeight) + 'px';
+
+        // Show info about the loaded case
+        this.showInfo(`Loaded: ${demoCase.filename} (${demoCase.label})`);
     }
 
     clearText() {
@@ -261,28 +312,40 @@ class NLPApp {
     }
 
     showError(message) {
-        // Create a simple error notification
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-notification';
-        errorDiv.textContent = message;
-        errorDiv.style.cssText = `
+        this.showNotification(message, 'error');
+    }
+
+    showInfo(message) {
+        this.showNotification(message, 'info');
+    }
+
+    showNotification(message, type = 'error') {
+        // Create a notification
+        const notificationDiv = document.createElement('div');
+        notificationDiv.className = `notification ${type}`;
+        notificationDiv.textContent = message;
+        
+        const bgColor = type === 'error' ? 'var(--danger)' : 'var(--primary)';
+        notificationDiv.style.cssText = `
             position: fixed;
             top: 100px;
             right: 20px;
-            background: var(--danger);
+            background: ${bgColor};
             color: white;
             padding: 1rem;
             border-radius: 8px;
             box-shadow: var(--shadow);
             z-index: 3000;
             max-width: 300px;
+            animation: slideIn 0.3s ease-out;
         `;
 
-        document.body.appendChild(errorDiv);
+        document.body.appendChild(notificationDiv);
 
         setTimeout(() => {
-            errorDiv.remove();
-        }, 5000);
+            notificationDiv.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(() => notificationDiv.remove(), 300);
+        }, type === 'error' ? 5000 : 3000);
     }
 }
 
