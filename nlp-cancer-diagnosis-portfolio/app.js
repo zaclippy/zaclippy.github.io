@@ -173,11 +173,17 @@ class NLPApp {
         // Create entity list
         const entityList = this.createEntityList(nerResults.entities);
 
+        // this.nerOutput.innerHTML = `
+        //     <div class="highlighted-text">
+        //         <h4>Highlighted Text:</h4>
+        //         <div class="text-display">${highlightedText}</div>
+        //     </div>
+        //     <div class="entity-list">
+        //         <h4>Detected Entities (${nerResults.entities.length}):</h4>
+        //         ${entityList}
+        //     </div>
+        // `;
         this.nerOutput.innerHTML = `
-            <div class="highlighted-text">
-                <h4>Highlighted Text:</h4>
-                <div class="text-display">${highlightedText}</div>
-            </div>
             <div class="entity-list">
                 <h4>Detected Entities (${nerResults.entities.length}):</h4>
                 ${entityList}
