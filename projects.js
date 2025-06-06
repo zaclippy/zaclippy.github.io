@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Software Engineering Project Tracker",
-            desc: "University Group Project\nA web app to track software engineering projects, tasks, and team progress to see if a project will fail or not.",
+            desc: "University Group Project<br>A web app to track software engineering projects, tasks, and team progress to see if a project will fail or not.",
             tags: ["Web App", "React", "Flask", "REST API"],
             links: [
                 {

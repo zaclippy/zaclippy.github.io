@@ -45,7 +45,7 @@
             <!-- Demo Case Selection -->
             <div class="demo-section">
                 <h2>Clinical Text Analysis Demo</h2>
-                <p>Experience the cancer diagnosis system trained on Spanish clinical texts from the CANTEMIST dataset. This research achieved an F1-score of 0.97 using LLM-generated annotations and traditional ML approaches.</p>
+                <p>Cancer diagnosis system trained on Spanish clinical texts from the CANTEMIST dataset.</p>
                 
                 <div class="demo-selector-container">
                     <label for="demo-selector">Choose a Clinical Case:</label>
@@ -96,16 +96,16 @@
 
             <!-- Abstract & Findings -->
             <div class="about-section">
-                <h2>Research Abstract</h2>
+                <h2>Research</h2>
                 <p>
-                    <strong>Background:</strong> Diagnostic delay reduces cancer survival rates by 10% each month. This project aims to predict 
-                    cancer diagnosis through LLMs, NLP and Transfer Learning techniques to automate the extraction of necessary 
-                    information from unstructured data: EHRs written in Spanish from the CANTEMIST dataset.
+                    <strong>Background:</strong> Diagnostic delay reduces cancer survival rates by 10% each month. My project was the investigation of how AI, specifically NLP, can help reduce this delay by automating the extraction of necessary information from unstructured data, such as Electronic Health Records (EHRs).
+                    As part of this research, I explored the use of Natural Language Processing (NLP) techniques to automate the extraction of necessary information from unstructured data: clinical text written in Spanish from the CANTEMIST dataset.
+                    
                 </p>
                 
                 <p>
-                    <strong>Methodology:</strong> The data was labeled with LLM models - GPT-4 was chosen over Google Gemini, then 
-                    subsequently used to train the SpaCy NER model in Python, to apply Machine Learning to the entities extracted 
+                    <strong>Methodology:</strong> The data was labeled with LLM models, then 
+                    used to train the SpaCy NER model in Python, to apply Machine Learning to the entities extracted 
                     to classify the diagnosis, comparing to the ground truth with an F1 of 0.97.
                 </p>
 
@@ -114,43 +114,43 @@
                     <ul>
                         <li><strong>High Performance:</strong> Achieved 0.97 F1-score with 97% accuracy on cancer classification</li>
                         <li><strong>LLM Effectiveness:</strong> GPT-4 outperformed Google Gemini for medical text annotation</li>
-                        <li><strong>Cost-Effective Approach:</strong> Eliminated need for expensive medical expert annotations</li>
-                        <li><strong>Spanish Language NLP:</strong> First generalised system for Spanish clinical text analysis</li>
-                        <li><strong>Transfer Learning Success:</strong> Demonstrated effective knowledge transfer from LLMs to traditional ML</li>
+                        <li><strong>Cost-Effective Approach:</strong> This technology could reduce need for expensive medical expert annotations</li>
+                        <li><strong>Transfer Learning Success:</strong> Demonstrated possible knowledge transfer from LLMs to traditional ML</li>
                     </ul>
                 </div>
 
                 <div class="research-highlights">
-                    <h3>Model Optimization Techniques</h3>
+                    <h3>Model Optimization Steps</h3>
                     <ul>
-                        <li><strong>TF-IDF Vectorization:</strong> Converted clinical text to numerical features weighted by term importance</li>
-                        <li><strong>Feature Selection:</strong> Used Chi-squared test to select most informative features for cancer prediction</li>
+                        <li><strong>TF-IDF Vectorization:</strong> Convert clinical text to numerical features weighted by term importance</li>
+                        <li><strong>Feature Selection:</strong> Chi-squared test to select most informative features for cancer prediction</li>
                         <li><strong>Multiple Algorithms:</strong> Grid search across Logistic Regression, Random Forest, and Gradient Boosting</li>
                         <li><strong>Comprehensive Evaluation:</strong> Cross-validation, confusion matrices, feature importance analysis</li>
                     </ul>
                 </div>
 
                 <div class="tech-stack">
-                    <h3>Technologies & Datasets</h3>
+                    <h3>Technologies</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">spaCy</span>
-                        <span class="tech-tag">OpenAI GPT-4</span>
-                        <span class="tech-tag">scikit-learn</span>
+                        <span class="tech-tag">GPT-4</span>
+                        <!-- <span class="tech-tag">scikit-learn</span> -->
                         <span class="tech-tag">Naive Bayes</span>
                         <span class="tech-tag">Logistic Regression</span>
                         <span class="tech-tag">TF-IDF</span>
                         <span class="tech-tag">Named Entity Recognition</span>
-                        <span class="tech-tag">Transfer Learning</span>
                     </div>
                 </div>
 
                 <div class="research-highlights">
-                    <h3>Future Work & Limitations</h3>
+                    <h3>Limitations</h3>
                     <ul>
-                        <li>Validation with medical expert annotations for NER evaluation</li>
-                        <li>Extension to other languages and medical domains</li>
+                        <li>NLP model only works for Spanish due to limited dataset</li>
                         <li>There is a lack of publicly available data for clinical texts, so the results may not generalise to other datasets</li>
+                    </ul><h3>Future work</h3>
+
+                    <ul>    <li>Validation with medical expert annotations for NER evaluation</li>
                         <li>Exploration of more advanced LLMs and hybrid models</li> 
                         <li>Larger-scale evaluation on diverse patient populations</li>
                     </ul>
