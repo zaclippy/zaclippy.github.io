@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLP Cancer Diagnosis | Zac Lipshaw</title>
+    <title>Cancer Diagnosis NLP Research | Zac Lipshaw</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" type="image/png" href="../icon.png" />
 </head>
@@ -11,29 +11,29 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="logo">← Back to Portfolio</a>
-            <h1>NLP Cancer Diagnosis</h1>
+            <h1>Cancer Diagnosis NLP Research</h1>
         </div>
     </nav>
 
     <div class="app-container">
-        <!-- Info Panel (initially hidden) -->
+        <!-- Results Panel -->
         <div id="results-panel" class="results-panel hidden">
             <div class="panel-content">
                 <button id="close-results" class="close-btn">&times;</button>
                 <div class="result-header">
-                    <h2 id="result-title">Analysis Results</h2>
+                    <h2>Analysis Results</h2>
                 </div>
                 <div class="result-body">
                     <div class="classification-result">
-                        <h3>Classification</h3>
+                        <h3>Cancer Classification</h3>
                         <div id="classification-output" class="output-box"></div>
                     </div>
                     <div class="ner-result">
-                        <h3>Named Entity Recognition</h3>
+                        <h3>Extracted Medical Entities</h3>
                         <div id="ner-output" class="output-box"></div>
                     </div>
                     <div class="confidence-score">
-                        <h3>Confidence Score</h3>
+                        <h3>Model Confidence</h3>
                         <div id="confidence-output" class="output-box"></div>
                     </div>
                 </div>
@@ -42,102 +42,121 @@
 
         <!-- Main Content -->
         <div class="main-content">
-            <!-- Input Section -->
-            <div class="input-section">
-                <h2>Clinical Text Analysis</h2>
-                <p>Load a demo text below and press Analyze text to demo the NER and ML analysis</p>
+            <!-- Demo Case Selection -->
+            <div class="demo-section">
+                <h2>Clinical Text Analysis Demo</h2>
+                <p>Experience the cancer diagnosis system trained on Spanish clinical texts from the CANTEMIST dataset. This research achieved an F1-score of 0.97 using LLM-generated annotations and traditional ML approaches.</p>
                 
-                <div class="input-container">
-                    <textarea 
-                        id="clinical-text" 
-                        placeholder="No demo text loaded"
-                        rows="8"
-                    ></textarea>
-                    
-                    <div class="button-group">
-                        <button id="analyze-btn" class="primary-btn">
-                            <span class="btn-text">Analyze Text</span>
-                            <span class="btn-loading hidden">Analyzing...</span>
-                        </button>
-                        <button id="demo-btn" class="secondary-btn">Load Demo Text</button>
-                        <button id="clear-btn" class="clear-btn">Clear</button>
-                    </div>
+                <div class="demo-selector-container">
+                    <label for="demo-selector">Choose a Clinical Case:</label>
+                    <select id="demo-selector" class="demo-selector">
+                        <option value="">Select a case to analyze...</option>
+                    </select>
+                </div>
+
+                <div id="selected-case-display" class="case-display">
+                    <p class="no-case">No case selected</p>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="analyze-btn" class="primary-btn" disabled>
+                        <span class="btn-text">🔍 Analyze Clinical Text</span>
+                        <span class="btn-loading hidden">Processing...</span>
+                    </button>
+                    <button id="clear-btn" class="secondary-btn">Clear Selection</button>
                 </div>
             </div>
 
-            <!-- Features Section -->
+            <!-- Methodology -->
             <div class="features-section">
-                <h2>Features</h2>
+                <h2>Research Methodology</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Cancer Classification</h3>
-                        <p>Simple ML model to classify clinical text to identify potential cancer indicators</p>
+                        <div class="feature-icon">🤖</div>
+                        <h3>LLM-Based Annotation</h3>
+                        <p>GPT-4 was used to label Spanish clinical texts, outperforming Google Gemini for medical entity recognition</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🏷️</div>
-                        <h3>Named Entity Recognition</h3>
-                        <p>Automatically extract and highlight medical entities like symptoms, conditions, and treatments</p>
+                        <h3>SpaCy NER Training</h3>
+                        <p>Custom Named Entity Recognition model trained on LLM-generated annotations to extract medical entities</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>LLMs</h3>
-                        <p>Created synthetic training annotations using various LLMs</p>
+                        <div class="feature-icon">📊</div>
+                        <h3>ML Classification</h3>
+                        <p>Naive Bayes and Logistic Regression optimized with TF-IDF vectorization and feature selection</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🌎</div>
-                        <h3>Languages</h3>
-                        <p>Synthetic data used for English<br>Real Spanish clinical texts processed</p>
+                        <div class="feature-icon">🌍</div>
+                        <h3>Spanish Language Focus</h3>
+                        <p>Addressed the gap in Spanish medical NLP using the CANTEMIST oncology dataset</p>
                     </div>
                 </div>
             </div>
 
-            <!-- About Section -->
+            <!-- Abstract & Findings -->
             <div class="about-section">
-                <h2>About This Project</h2>
+                <h2>Research Abstract</h2>
                 <p>
-                    This application showcases my final year dissertation research on using Natural Language Processing 
-                    and Large Language Models for clinical text analysis. The system uses advanced machine learning 
-                    techniques to assist healthcare professionals in identifying potential cancer indicators from 
-                    clinical notes.
+                    <strong>Background:</strong> Diagnostic delay reduces cancer survival rates by 10% each month. This project aims to predict 
+                    cancer diagnosis through LLMs, NLP and Transfer Learning techniques to automate the extraction of necessary 
+                    information from unstructured data: EHRs written in Spanish from the CANTEMIST dataset.
                 </p>
+                
+                <p>
+                    <strong>Methodology:</strong> The data was labeled with LLM models - GPT-4 was chosen over Google Gemini, then 
+                    subsequently used to train the SpaCy NER model in Python, to apply Machine Learning to the entities extracted 
+                    to classify the diagnosis, comparing to the ground truth with an F1 of 0.97.
+                </p>
+
+                <div class="research-highlights">
+                    <h3>Key Findings</h3>
+                    <ul>
+                        <li><strong>High Performance:</strong> Achieved 0.97 F1-score with 97% accuracy on cancer classification</li>
+                        <li><strong>LLM Effectiveness:</strong> GPT-4 outperformed Google Gemini for medical text annotation</li>
+                        <li><strong>Cost-Effective Approach:</strong> Eliminated need for expensive medical expert annotations</li>
+                        <li><strong>Spanish Language NLP:</strong> First generalised system for Spanish clinical text analysis</li>
+                        <li><strong>Transfer Learning Success:</strong> Demonstrated effective knowledge transfer from LLMs to traditional ML</li>
+                    </ul>
+                </div>
+
+                <div class="research-highlights">
+                    <h3>Model Optimization Techniques</h3>
+                    <ul>
+                        <li><strong>TF-IDF Vectorization:</strong> Converted clinical text to numerical features weighted by term importance</li>
+                        <li><strong>Feature Selection:</strong> Used Chi-squared test to select most informative features for cancer prediction</li>
+                        <li><strong>Multiple Algorithms:</strong> Grid search across Logistic Regression, Random Forest, and Gradient Boosting</li>
+                        <li><strong>Comprehensive Evaluation:</strong> Cross-validation, confusion matrices, feature importance analysis</li>
+                    </ul>
+                </div>
+
                 <div class="tech-stack">
-                    <h3>Technologies Used</h3>
+                    <h3>Technologies & Datasets</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">spaCy</span>
-                        <span class="tech-tag">OpenAI API</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">OpenAI GPT-4</span>
+                        <span class="tech-tag">scikit-learn</span>
+                        <span class="tech-tag">Naive Bayes</span>
+                        <span class="tech-tag">Logistic Regression</span>
+                        <span class="tech-tag">TF-IDF</span>
+                        <span class="tech-tag">Named Entity Recognition</span>
+                        <span class="tech-tag">Transfer Learning</span>
                     </div>
+                </div>
+
+                <div class="research-highlights">
+                    <h3>Future Work & Limitations</h3>
+                    <ul>
+                        <li>Validation with medical expert annotations for NER evaluation</li>
+                        <li>Extension to other languages and medical domains</li>
+                        <li>There is a lack of publicly available data for clinical texts, so the results may not generalise to other datasets</li>
+                        <li>Exploration of more advanced LLMs and hybrid models</li> 
+                        <li>Larger-scale evaluation on diverse patient populations</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Legend -->
-        <div class="legend">
-            <h3>Entity Types</h3>
-            <div class="legend-item">
-                <span class="entity-marker condition"></span>
-                <span>Medical Conditions</span>
-            </div>
-            <div class="legend-item">
-                <span class="entity-marker symptom"></span>
-                <span>Symptoms</span>
-            </div>
-            <div class="legend-item">
-                <span class="entity-marker treatment"></span>
-                <span>Treatments</span>
-            </div>
-            <div class="legend-item">
-                <span class="entity-marker anatomy"></span>
-                <span>Anatomy</span>
-            </div>
-        </div>
-    </div>
-
     <script type="module" src="app.js"></script>
 </body>
 </html>
