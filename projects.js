@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
             links: [{ label: "Work in Progress", url: "../#" }],
         },
         {
+            title: "Travel Map",
+            desc: "Interactive map to show where I have explored, with a photo",
+            tags: [],
+            links: [{ label: "Open", url: "travel/index.html" }],
+        },
+        {
             title: "BroZone",
             desc: "Social Networking App made with a friend to replace the addictive nature of social media with a more positive experience",
             tags: ["Web App", "Next.js", "Firebase", "Social"],
@@ -34,12 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             ],
         },
-        {
-            title: "Travel Map",
-            desc: "Interactive map to show where I have explored, with a photo",
-            tags: [],
-            links: [{ label: "Open", url: "travel/index.html" }],
-        },
+
         {
             title: "Haskell Poker Parser",
             desc: "Parser for Texas Hold'em poker hands in Haskell",
