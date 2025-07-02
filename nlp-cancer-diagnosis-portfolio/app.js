@@ -1,11 +1,12 @@
 // Import API functions
-import { classifyText, extractEntities, getDemoData, healthCheck } from './api.js';
+import { classifyText, extractEntities, getDemoData, healthCheck, getEnglishDemoData } from './api.js';
 
 class NLPApp {
     constructor() {
         this.initializeElements();
         this.bindEvents();
         this.loadDemoData();
+        this.apiAvailable = false;
     }
 
     initializeElements() {
@@ -57,72 +58,93 @@ class NLPApp {
     }
 
     async loadDemoData() {
+        console.log('Loading demo data...');
+        
+        // Always load English demo cases first
+        const englishDemoData = getEnglishDemoData();
+        this.demoTexts = [...englishDemoData.demo_cases];
+        
+        // Try to load Spanish cases from API
         try {
-            const response = await getDemoData();
-            if (response.demo_cases && response.demo_cases.length > 0) {
-                this.demoTexts = response.demo_cases;
-                this.populateDemoSelector();
-                console.log(`Loaded ${this.demoTexts.length} demo cases from backend`);
+            const health = await healthCheck();
+            if (health.status !== 'error') {
+                const apiDemoData = await getDemoData();
+                if (apiDemoData.demo_cases && apiDemoData.demo_cases.length > 0) {
+                    // Mark Spanish cases and add them to the beginning
+                    const spanishCases = apiDemoData.demo_cases.map(case_ => ({
+                        ...case_,
+                        language: 'Spanish',
+                        isDemo: false,
+                        title: case_.title || 'Spanish Clinical Text'
+                    }));
+                    
+                    this.demoTexts = [...spanishCases, ...this.demoTexts];
+                    this.apiAvailable = true;
+                    console.log(`Loaded ${spanishCases.length} Spanish cases from API and ${englishDemoData.demo_cases.length} English demo cases`);
+                } else {
+                    console.warn('No Spanish demo cases found from API');
+                }
             } else {
-                console.warn('No demo cases found, using fallback data');
-                this.initializeFallbackDemoData();
-                this.populateDemoSelector();
+                console.warn('API health check failed, using English demo cases only');
             }
         } catch (error) {
-            console.error('Failed to load demo data from backend:', error);
-            this.initializeFallbackDemoData();
-            this.populateDemoSelector();
+            console.error('Failed to load Spanish demo data from API:', error);
         }
-    }
-
-    initializeFallbackDemoData() {
-        this.demoTexts = [
-            {
-                id: 'case_1',
-                title: 'Lung Cancer - High Risk',
-                text: "Patient is a 65-year-old male with a history of smoking who presents with persistent cough for 3 months, weight loss of 15 pounds, and chest pain. CT scan shows a 4cm mass in the right upper lobe of the lung with enlarged mediastinal lymph nodes.",
-                label: "Cancer Case",
-                expectedEntities: ['cough', 'weight loss', 'chest pain', 'mass', 'lung', 'lymph nodes'],
-                riskLevel: 'high'
-            },
-            {
-                id: 'case_2',
-                title: 'Lymphoma Symptoms',
-                text: "45-year-old female presents with fatigue, night sweats, and enlarged lymph nodes in the neck and axilla. CBC shows elevated white blood cell count. Patient reports B symptoms including fever and unexplained weight loss over the past 2 months.",
-                label: "Cancer Case",
-                expectedEntities: ['fatigue', 'night sweats', 'lymph nodes', 'fever', 'weight loss'],
-                riskLevel: 'high'
-            },
-            {
-                id: 'case_3',
-                title: 'Routine Screening - Normal',
-                text: "Patient with family history of breast cancer presents for routine mammography screening. No current symptoms or palpable masses. Physical examination unremarkable. Mammogram shows scattered fibroglandular densities, no suspicious findings.",
-                label: "Non-Cancer",
-                expectedEntities: ['breast cancer', 'mammography', 'examination'],
-                riskLevel: 'low'
-            },
-            {
-                id: 'case_4',
-                title: 'Esophageal Concerns',
-                text: "72-year-old male presents with difficulty swallowing, weight loss, and heartburn. Upper endoscopy reveals irregular mucosa in the distal esophagus with biopsy showing dysplastic changes. Patient has history of gastroesophageal reflux disease.",
-                label: "Cancer Case",
-                expectedEntities: ['difficulty swallowing', 'weight loss', 'heartburn', 'endoscopy', 'biopsy', 'esophagus'],
-                riskLevel: 'medium'
-            }
-        ];
+        
+        this.populateDemoSelector();
+        this.updateStatusMessage();
     }
 
     populateDemoSelector() {
         // Clear existing options
         this.demoSelector.innerHTML = '<option value="">Select a clinical case...</option>';
         
-        // Add demo cases
+        // Add demo cases with language indicators
         this.demoTexts.forEach((demoCase, index) => {
             const option = document.createElement('option');
             option.value = index;
-            option.textContent = `${demoCase.title} (${demoCase.label})`;
+            
+            // Add language prefix and styling
+            const languagePrefix = demoCase.language === 'Spanish' ? '🇪🇸' : '🇬🇧';
+            const caseType = demoCase.isDemo ? ' (Demo)' : '';
+            option.textContent = `${languagePrefix} ${demoCase.title}${caseType}`;
+            
+            // Add data attributes for styling
+            option.setAttribute('data-language', demoCase.language);
+            option.setAttribute('data-is-demo', demoCase.isDemo);
+            
             this.demoSelector.appendChild(option);
         });
+    }
+
+    updateStatusMessage() {
+        const statusElement = document.getElementById('api-status');
+        if (statusElement) {
+            statusElement.remove();
+        }
+
+        const statusDiv = document.createElement('div');
+        statusDiv.id = 'api-status';
+        statusDiv.className = 'api-status';
+        
+        if (this.apiAvailable) {
+            statusDiv.innerHTML = `
+                <div class="status-indicator online">
+                    <span class="status-dot"></span>
+                    <span>API Online - Spanish clinical cases available</span>
+                </div>
+            `;
+        } else {
+            statusDiv.innerHTML = `
+                <div class="status-indicator offline">
+                    <span class="status-dot"></span>
+                    <span>API Offline - English demo cases only</span>
+                </div>
+            `;
+        }
+
+        const demoSection = document.querySelector('.demo-section');
+        demoSection.insertBefore(statusDiv, demoSection.querySelector('.demo-selector-container'));
     }
 
     selectDemoCase() {
@@ -142,7 +164,11 @@ class NLPApp {
             <div class="selected-case">
                 <div class="case-header">
                     <h4>${selectedCase.title}</h4>
-                    <span class="case-label ${selectedCase.riskLevel}">${selectedCase.label}</span>
+                    <div class="case-badges">
+                        <span class="language-badge ${selectedCase.language.toLowerCase()}">${selectedCase.language}</span>
+                        <span class="case-label ${selectedCase.riskLevel}">${selectedCase.label}</span>
+                        ${selectedCase.isDemo ? '<span class="demo-badge">Demo</span>' : '<span class="api-badge">API</span>'}
+                    </div>
                 </div>
                 <div class="case-text">
                     <p>${selectedCase.text}</p>
@@ -167,23 +193,30 @@ class NLPApp {
         this.setLoadingState(true);
 
         try {
-            // Check backend health first
-            const health = await healthCheck();
-            if (health.status === 'error') {
-                throw new Error('Backend service is unavailable');
+            // Only try API if it's available and this is a Spanish case
+            if (this.apiAvailable && selectedCase.language === 'Spanish' && !selectedCase.isDemo) {
+                const health = await healthCheck();
+                if (health.status !== 'error') {
+                    // Make parallel API calls for Spanish cases
+                    const [classificationResult, nerResult] = await Promise.all([
+                        classifyText(selectedCase.text),
+                        extractEntities(selectedCase.text)
+                    ]);
+
+                    this.displayResults(classificationResult, nerResult, selectedCase);
+                    this.showResults();
+                } else {
+                    throw new Error('API temporarily unavailable');
+                }
+            } else {
+                // Use mock results for English demo cases
+                console.log('Using mock results for English demo case');
+                this.displayMockResults(selectedCase);
+                this.showResults();
             }
-
-            // Make parallel API calls
-            const [classificationResult, nerResult] = await Promise.all([
-                classifyText(selectedCase.text),
-                extractEntities(selectedCase.text)
-            ]);
-
-            this.displayResults(classificationResult, nerResult, selectedCase);
-            this.showResults();
         } catch (error) {
             console.error('Analysis error:', error);
-            this.showError('Analysis failed. Showing expected results for demonstration.');
+            this.showError(`Analysis failed${selectedCase.language === 'Spanish' ? ' - API may be unavailable' : ''}. Showing expected results.`);
             this.displayMockResults(selectedCase);
             this.showResults();
         } finally {
@@ -212,7 +245,11 @@ class NLPApp {
             <div class="classification-result-item ${resultClass}">
                 <div class="case-info">
                     <h4>${selectedCase.title}</h4>
-                    <span class="expected-label">Expected: ${selectedCase.label}</span>
+                    <div class="case-badges">
+                        <span class="language-badge ${selectedCase.language.toLowerCase()}">${selectedCase.language}</span>
+                        <span class="expected-label">Expected: ${selectedCase.label}</span>
+                        ${selectedCase.isDemo ? '<span class="demo-badge">Demo Result</span>' : '<span class="api-badge">API Result</span>'}
+                    </div>
                 </div>
                 <div class="classification-label">
                     <strong>Model Prediction:</strong> ${result}
@@ -242,7 +279,7 @@ class NLPApp {
     }
 
     displayMockResults(selectedCase) {
-        // Show expected results when backend is unavailable
+        // Show expected results when backend is unavailable or for demo cases
         const mockClassification = {
             prediction: selectedCase.label,
             confidence: selectedCase.riskLevel === 'high' ? 0.92 : selectedCase.riskLevel === 'medium' ? 0.78 : 0.85
@@ -262,9 +299,9 @@ class NLPApp {
     }
 
     guessEntityType(entity) {
-        const symptoms = ['cough', 'pain', 'fatigue', 'fever', 'sweats', 'weight loss', 'heartburn'];
-        const anatomy = ['lung', 'lymph nodes', 'neck', 'axilla', 'breast', 'esophagus'];
-        const procedures = ['CT scan', 'mammography', 'endoscopy', 'biopsy', 'examination'];
+        const symptoms = ['cough', 'pain', 'fatigue', 'fever', 'sweats', 'weight loss', 'heartburn', 'urinary frequency', 'urine stream'];
+        const anatomy = ['lung', 'lymph nodes', 'neck', 'axilla', 'breast', 'esophagus', 'prostate', 'skin'];
+        const procedures = ['CT scan', 'mammography', 'endoscopy', 'biopsy', 'examination', 'PSA', 'dermoscopy'];
         
         const lowerEntity = entity.toLowerCase();
         if (symptoms.some(s => lowerEntity.includes(s))) return 'SYMPTOM';
@@ -305,7 +342,7 @@ class NLPApp {
                         ${entityList.map(entity => `
                             <li>
                                 <span class="entity ${entity.label.toLowerCase()}">${entity.text}</span>
-                                ${entity.description ? `<small> - ${entity.description}</small>` : ''}
+                                ${entity.confidence ? `<small class="confidence">(${(entity.confidence * 100).toFixed(0)}%)</small>` : ''}
                             </li>
                         `).join('')}
                     </ul>
