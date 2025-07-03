@@ -743,6 +743,42 @@ body {
     box-shadow: 0 0 0 2px rgba(255, 165, 2, 0.3);
 }
 
+/* Wake API Button */
+.wake-btn {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.2s;
+}
+
+.wake-btn:hover:not(:disabled) {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+.wake-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wake-btn.waking {
+    animation: pulse 1.5s infinite;
+}
+
+.status-indicator.offline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 @keyframes pulse-green {
     0% { box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.3); }
     50% { box-shadow: 0 0 0 4px rgba(46, 213, 115, 0.1); }

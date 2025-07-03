@@ -69,12 +69,52 @@ async function getDemoData() {
 // Add health check function
 async function healthCheck() {
     try {
-        const response = await fetch(`${API_URL.replace("/api", "")}/health`);
-        const data = await response.json();
-        return data;
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+        
+        const response = await fetch(`${API_URL.replace("/api", "")}/health`, {
+            signal: controller.signal
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (response.ok) {
+            const data = await response.json();
+            return data;
+        } else {
+            return { status: "error", message: "API returned error status" };
+        }
     } catch (error) {
         console.error("Backend health check failed:", error);
         return { status: "error", message: "Backend unavailable" };
+    }
+}
+
+// Simple wake function - just hits multiple endpoints to wake up Render
+async function wakeAPI() {
+    console.log('🚀 Waking up API...');
+    
+    try {
+        // Hit multiple endpoints to ensure wake up
+        const wakeRequests = [
+            fetch(`${API_URL.replace("/api", "")}/health`).catch(() => null),
+            fetch(`${API_URL.replace("/api", "")}`).catch(() => null),
+            fetch(`${API_URL}/demo`).catch(() => null)
+        ];
+        
+        // Send all requests
+        await Promise.allSettled(wakeRequests);
+        
+        // Wait a bit for the service to start
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Check if it's awake
+        const health = await healthCheck();
+        return health.status !== 'error';
+        
+    } catch (error) {
+        console.error('Error waking API:', error);
+        return false;
     }
 }
 
@@ -147,4 +187,4 @@ function getEnglishDemoData() {
 }
 
 // Export functions for use in other modules
-export { classifyText, extractEntities, getDemoData, healthCheck, getEnglishDemoData };
+export { classifyText, extractEntities, getDemoData, healthCheck, getEnglishDemoData, wakeAPI };

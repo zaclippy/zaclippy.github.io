@@ -1,5 +1,5 @@
 // Import API functions
-import { classifyText, extractEntities, getDemoData, healthCheck, getEnglishDemoData } from './api.js';
+import { classifyText, extractEntities, getDemoData, healthCheck, getEnglishDemoData, wakeAPI } from './api.js';
 
 class NLPApp {
     constructor() {
@@ -139,12 +139,56 @@ class NLPApp {
                 <div class="status-indicator offline">
                     <span class="status-dot"></span>
                     <span>API Offline - English demo cases only</span>
+                    <button id="wake-api-btn" class="wake-btn">
+                        🚀 Wake API for Spanish Cases
+                    </button>
                 </div>
             `;
+
+            // Add wake button event listener after it's created
+            setTimeout(() => {
+                const wakeBtn = document.getElementById('wake-api-btn');
+                if (wakeBtn) {
+                    wakeBtn.addEventListener('click', () => this.handleWakeAPI());
+                }
+            }, 0);
         }
 
         const demoSection = document.querySelector('.demo-section');
         demoSection.insertBefore(statusDiv, demoSection.querySelector('.demo-selector-container'));
+    }
+
+    async handleWakeAPI() {
+        const wakeBtn = document.getElementById('wake-api-btn');
+        if (!wakeBtn) return;
+
+        // Update button to show loading
+        wakeBtn.disabled = true;
+        wakeBtn.innerHTML = '⏳ Waking API... (up to 50s)';
+        wakeBtn.classList.add('waking');
+
+        try {
+            console.log('Attempting to wake API...');
+            const success = await wakeAPI();
+            
+            if (success) {
+                // API is awake, reload demo data
+                await this.loadDemoData();
+                this.showNotification('✅ API is now online! Spanish cases loaded.', 'success');
+            } else {
+                // Still not awake, but don't error - might take longer
+                wakeBtn.innerHTML = '🔄 Try Again (API may need more time)';
+                wakeBtn.disabled = false;
+                wakeBtn.classList.remove('waking');
+                this.showNotification('⏳ API is starting up. Try again in a moment.', 'info');
+            }
+        } catch (error) {
+            console.error('Error waking API:', error);
+            wakeBtn.innerHTML = '❌ Try Again';
+            wakeBtn.disabled = false;
+            wakeBtn.classList.remove('waking');
+            this.showNotification('❌ Failed to wake API. Try again.', 'error');
+        }
     }
 
     selectDemoCase() {
@@ -424,7 +468,18 @@ class NLPApp {
         notificationDiv.className = `notification ${type}`;
         notificationDiv.textContent = message;
         
-        const bgColor = type === 'error' ? 'var(--danger)' : 'var(--primary)';
+        let bgColor;
+        switch (type) {
+            case 'success':
+                bgColor = 'var(--success)';
+                break;
+            case 'info':
+                bgColor = 'var(--primary)';
+                break;
+            default:
+                bgColor = 'var(--danger)';
+        }
+        
         notificationDiv.style.cssText = `
             position: fixed;
             top: 100px;
