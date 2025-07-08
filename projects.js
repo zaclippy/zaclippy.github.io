@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
         },
         {
-            title: "BroRun: Strava Run Rating App",
-            desc: "A social app to rate and share running routes, integrated with Strava API. Built for runners to discover and review routes.",
-            tags: ["Web App", "Strava API", "React", "Fitness"],
-            links: [{ label: "Work in Progress", url: "../#" }],
+            title: "Geography Challenge: How Well Do You Know the World?",
+            desc: "Try my Geography game developed for a Tiktok influencer",
+            tags: ["Game", "JS", "HTML"],
+            links: [{ label: "Play", url: "https://zaclippygames.netlify.app" }],
         },
         {
             title: "Travel Map",
