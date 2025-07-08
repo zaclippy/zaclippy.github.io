@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Geography Challenge: How Well Do You Know the World?",
-            desc: "Try my Geography game developed for a Tiktok influencer",
+            desc: "Try this Geography game developed by me for a Tiktok influencer called Hunter",
             tags: ["Game", "JS", "HTML"],
-            links: [{ label: "Play", url: "https://zaclippygames.netlify.app" }],
+            links: [{ label: "Play", url: "https://geohunter.vercel.app" }],
         },
         {
             title: "Travel Map",
