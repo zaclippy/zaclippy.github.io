@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
         },
         {
-            title: "Geography Challenge: How Well Do You Know the World?",
-            desc: "Try this Geography game developed by me for a Tiktok influencer called Hunter",
+            title: "GeoHunter: fun to play geography challenge!",
+            desc: "Game developed for my first client, a Tiktok creator who plays daily geography games.",
             tags: ["Game", "JS", "HTML"],
-            links: [{ label: "Play", url: "https://geohunter.vercel.app" }],
+            links: [{ label: "Play", url: "https://geohuntergame.com" }],
         },
         {
             title: "Travel Map",
