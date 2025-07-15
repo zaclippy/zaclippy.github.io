@@ -191,6 +191,83 @@ body {
     color: var(--accent);
 }
 
+/* Featured Project Styling */
+.featured-project {
+    position: relative;
+    background: linear-gradient(135deg, var(--white) 0%, #f8f9ff 100%);
+    border: 2px solid var(--primary);
+    box-shadow: 0 8px 32px rgba(41,115,255,0.15);
+    overflow: hidden;
+}
+
+.featured-project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.featured-project:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(41,115,255,0.2);
+}
+
+.featured-badge {
+    background: rgba(255, 107, 53, 0.1);
+    color: #ff6b35;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.featured-project .project-title {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-top: 1rem;
+}
+
+.featured-project .project-desc {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+.featured-project .project-tag {
+    background: var(--secondary);
+    color: var(--primary);
+    font-weight: 500;
+    border: 1px solid rgba(41, 115, 255, 0.1);
+}
+
+.featured-project .project-link {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(41,115,255,0.2);
+}
+
+.featured-project .project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(41,115,255,0.3);
+    color: white;
+}
+
 /* About and Contact Sections */
 .about-section, .contact-section {
     padding: 30px 0;
@@ -310,6 +387,16 @@ footer {
     
     .about-section p, .contact-section p {
         font-size: 0.95rem;
+    }
+    
+    .featured-project .project-title {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+    }
+    
+    .featured-badge {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
     }
 }
 

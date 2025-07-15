@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "🎯 GeoHunter: Viral TikTok geography challenge!",
             desc: "Built a browser-based country guessing game that achieved over 50,000 views in its first week for my first client",
-            tags: ["Game", "JS", "HTML"],
-            links: [{ label: "Play", url: "https://geohuntergame.com" }],
+            tags: ["Game", "JS", "HTML", "Viral"],
+            links: [{ label: "Play Now", url: "https://geohuntergame.com" }],
+            featured: true
         },
         {
             title: "Travel Map",
@@ -57,11 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsList = document.getElementById('projects-list');
     projects.forEach(project => {
         const card = document.createElement('div');
-        card.className = 'project-card';
+        card.className = project.featured ? 'project-card featured-project' : 'project-card';
+
+        const featuredBadge = project.featured ? '<div class="featured-badge">🔥 Featured Project</div>' : '';
+        const statsDisplay = project.stats ? `<div class="project-stats">${project.stats}</div>` : '';
 
         card.innerHTML = `
+            ${featuredBadge}
             <div class="project-title">${project.title}</div>
             <div class="project-desc">${project.desc}</div>
+            ${statsDisplay}
             <div class="project-tags">
                 ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
             </div>
