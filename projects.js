@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
         },
         {
-            title: "GeoHunter: fun to play geography challenge!",
-            desc: "Game developed for my first client, a Tiktok creator who plays daily geography games.",
+            title: "🎯 GeoHunter: Viral TikTok geography challenge!",
+            desc: "Built a browser-based country guessing game that achieved over 50,000 views in its first week for my first client",
             tags: ["Game", "JS", "HTML"],
             links: [{ label: "Play", url: "https://geohuntergame.com" }],
         },
